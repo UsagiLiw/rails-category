@@ -1,24 +1,13 @@
-# README
+Yound Wow Test
+Challenge 1 
+1. Load file from https://s3-ap-southeast-1.amazonaws.com/kiyo-devel...
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Create model Category from browse file categories.json Note! this structure is sub-categories
 
-Things you may want to cover:
+Add views categories
 
-* Ruby version
+- categories can search
 
-* System dependencies
+- categories select from drill down data
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- return category id when select data
