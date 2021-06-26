@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @category.id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @category.name %>
+</p>
+
+<p>
+  <strong>Label:</strong>
+  <%= @category.label %>
+</p>
+
+<p>
+  <strong>Isleaf:</strong>
+  <%= @category.isLeaf %>
+</p>
+
+<p>
+  <strong>Firstlevelcatid:</strong>
+  <%= @category.firstLevelCatId %>
+</p>
+
+<p>
+  <strong>Variationcat:</strong>
+  <%= @category.variationCat %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @category.active %>
+</p>
+
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %>
