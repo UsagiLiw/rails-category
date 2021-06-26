@@ -28,6 +28,34 @@ all_categories.each do |category|
             active: category["active"],
         }
     )
+
+    category["subcategories"]&.each do |subcategory|
+        Category.create(
+            {
+                catId: subcategory["id"],
+                name: subcategory["name"],
+                label: subcategory["label"],
+                isLeaf: subcategory["isLeaf"],
+                firstLevelCatId: subcategory["firstLevelCatId"],
+                variationCat: subcategory["variationCat"],
+                active: subcategory["active"],
+            }
+        )
+
+        subcategory["subcategories"]&.each do |subsubcategory|
+            Category.create(
+                {
+                    catId: subsubcategory["id"],
+                    name: subsubcategory["name"],
+                    label: subsubcategory["label"],
+                    isLeaf: subsubcategory["isLeaf"],
+                    firstLevelCatId: subsubcategory["firstLevelCatId"],
+                    variationCat: subsubcategory["variationCat"],
+                    active: subsubcategory["active"],
+                }
+            )
+        end
+    end
 end
 
 puts "It has been seeded."
