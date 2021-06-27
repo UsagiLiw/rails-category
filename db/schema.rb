@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_26_181230) do
+ActiveRecord::Schema.define(version: 2021_06_27_175046) do
 
   create_table "categories", force: :cascade do |t|
     t.integer "catId"
@@ -20,11 +20,11 @@ ActiveRecord::Schema.define(version: 2021_06_26_181230) do
     t.integer "firstLevelCatId"
     t.boolean "variationCat"
     t.boolean "active"
-    t.integer "parent_category_id"
+    t.integer "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["parent_category_id"], name: "index_categories_on_parent_category_id"
+    t.index ["category_id"], name: "index_categories_on_category_id"
   end
 
-  add_foreign_key "categories", "categories", column: "parent_category_id"
+  add_foreign_key "categories", "categories"
 end

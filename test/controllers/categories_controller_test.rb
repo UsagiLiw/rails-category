@@ -17,7 +17,7 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create category" do
     assert_difference('Category.count') do
-      post categories_url, params: { category: { active: @category.active, firstLevelCatId: @category.firstLevelCatId, id: @category.id, isLeaf: @category.isLeaf, label: @category.label, name: @category.name, variationCat: @category.variationCat } }
+      post categories_url, params: { category: { active: @category.active, catId: @category.catId, category_id: @category.category_id, firstLevelCatId: @category.firstLevelCatId, isLeaf: @category.isLeaf, label: @category.label, name: @category.name, variationCat: @category.variationCat } }
     end
 
     assert_redirected_to category_url(Category.last)
@@ -34,7 +34,7 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update category" do
-    patch category_url(@category), params: { category: { active: @category.active, firstLevelCatId: @category.firstLevelCatId, id: @category.id, isLeaf: @category.isLeaf, label: @category.label, name: @category.name, variationCat: @category.variationCat } }
+    patch category_url(@category), params: { category: { active: @category.active, catId: @category.catId, category_id: @category.category_id, firstLevelCatId: @category.firstLevelCatId, isLeaf: @category.isLeaf, label: @category.label, name: @category.name, variationCat: @category.variationCat } }
     assert_redirected_to category_url(@category)
   end
 

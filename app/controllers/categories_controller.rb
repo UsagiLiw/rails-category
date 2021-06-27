@@ -8,6 +8,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1 or /categories/1.json
   def show
+    @categories = Category.all
   end
 
   # GET /categories/new
@@ -64,6 +65,6 @@ class CategoriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def category_params
-      params.require(:category).permit(:id, :name, :label, :isLeaf, :firstLevelCatId, :variationCat, :active)
+      params.require(:category).permit(:catId, :name, :label, :isLeaf, :firstLevelCatId, :variationCat, :active, :category_id)
     end
 end

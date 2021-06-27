@@ -1,19 +1,21 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  id: 1
+  catId: 1
   name: MyString
   label: MyString
   isLeaf: false
   firstLevelCatId: 1
   variationCat: false
   active: false
+  category: one
 
 two:
-  id: 1
+  catId: 1
   name: MyString
   label: MyString
   isLeaf: false
   firstLevelCatId: 1
   variationCat: false
   active: false
+  category: two

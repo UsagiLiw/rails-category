@@ -15,8 +15,9 @@ class CategoriesTest < ApplicationSystemTestCase
     click_on "New Category"
 
     check "Active" if @category.active
+    fill_in "Catid", with: @category.catId
+    fill_in "Category", with: @category.category_id
     fill_in "Firstlevelcatid", with: @category.firstLevelCatId
-    fill_in "Id", with: @category.id
     check "Isleaf" if @category.isLeaf
     fill_in "Label", with: @category.label
     fill_in "Name", with: @category.name
@@ -32,8 +33,9 @@ class CategoriesTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     check "Active" if @category.active
+    fill_in "Catid", with: @category.catId
+    fill_in "Category", with: @category.category_id
     fill_in "Firstlevelcatid", with: @category.firstLevelCatId
-    fill_in "Id", with: @category.id
     check "Isleaf" if @category.isLeaf
     fill_in "Label", with: @category.label
     fill_in "Name", with: @category.name

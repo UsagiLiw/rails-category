@@ -17,7 +17,7 @@ response = Net::HTTP.get(uri)
 all_categories = JSON.parse(response) 
 
 all_categories.each do |category|
-    Category.create(
+    root = Category.create(
         {
             catId: category["id"],
             name: category["name"],
@@ -28,9 +28,8 @@ all_categories.each do |category|
             active: category["active"],
         }
     )
-
     category["subcategories"]&.each do |subcategory|
-        Category.create(
+        level_2 = root.children.create(
             {
                 catId: subcategory["id"],
                 name: subcategory["name"],
@@ -42,18 +41,57 @@ all_categories.each do |category|
             }
         )
 
-        subcategory["subcategories"]&.each do |subsubcategory|
-            Category.create(
+        subcategory["subcategories"]&.each do |sub2category|
+            level_3 = level_2.children.create(
                 {
-                    catId: subsubcategory["id"],
-                    name: subsubcategory["name"],
-                    label: subsubcategory["label"],
-                    isLeaf: subsubcategory["isLeaf"],
-                    firstLevelCatId: subsubcategory["firstLevelCatId"],
-                    variationCat: subsubcategory["variationCat"],
-                    active: subsubcategory["active"],
+                    catId: sub2category["id"],
+                    name: sub2category["name"],
+                    label: sub2category["label"],
+                    isLeaf: sub2category["isLeaf"],
+                    firstLevelCatId: sub2category["firstLevelCatId"],
+                    variationCat: sub2category["variationCat"],
+                    active: sub2category["active"],
                 }
             )
+            sub2category["subcategories"]&.each do |sub3category|
+                level_4 = level_3.children.create(
+                    {
+                        catId: sub3category["id"],
+                        name: sub3category["name"],
+                        label: sub3category["label"],
+                        isLeaf: sub3category["isLeaf"],
+                        firstLevelCatId: sub3category["firstLevelCatId"],
+                        variationCat: sub3category["variationCat"],
+                        active: sub3category["active"],
+                    }
+                )
+                sub3category["subcategories"]&.each do |sub4category|
+                    level_5 = level_4.children.create(
+                        {
+                            catId: sub4category["id"],
+                            name: sub4category["name"],
+                            label: sub4category["label"],
+                            isLeaf: sub4category["isLeaf"],
+                            firstLevelCatId: sub4category["firstLevelCatId"],
+                            variationCat: sub4category["variationCat"],
+                            active: sub4category["active"],
+                        }
+                    )
+                    sub4category["subcategories"]&.each do |sub5category|
+                        level_5.children.create(
+                            {
+                                catId: sub5category["id"],
+                                name: sub5category["name"],
+                                label: sub5category["label"],
+                                isLeaf: sub5category["isLeaf"],
+                                firstLevelCatId: sub5category["firstLevelCatId"],
+                                variationCat: sub5category["variationCat"],
+                                active: sub5category["active"],
+                            }
+                        )
+                    end
+                end
+            end
         end
     end
 end

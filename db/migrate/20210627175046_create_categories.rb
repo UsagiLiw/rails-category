@@ -8,8 +8,7 @@ class CreateCategories < ActiveRecord::Migration[6.1]
       t.integer :firstLevelCatId
       t.boolean :variationCat
       t.boolean :active
-      
-      t.references :parent_category, foreign_key: { to_table: :categories}
+      t.references :category, foreign_key: true
 
       t.timestamps
     end
