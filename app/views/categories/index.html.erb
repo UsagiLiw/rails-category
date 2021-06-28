@@ -7,20 +7,28 @@
         <tr>
             <th>Name</th>
             <th>Label</th>
-            <th>Category Id</th>
             <th colspan="1"></th>
         </tr>
     </thead>
 
     <tbody>
-        <% @categories.sort_by(&:catId).each do |category| %>
-            <% if category.category_id.nil? %>
+        <% if @categories == Category.all %>
+            <% @categories.sort_by(&:catId).each do |category| %>
+                <% if category.category_id.nil? %>
+                    <tr>
+                        <td><%= category.name %></td>
+                        <td><%= category.label %></td>
+                        <td><%= link_to 'Show', category %></td>
+                    </tr>    
+                <% end %>
+            <% end %>
+        <% else %>
+            <% @categories&.sort_by(&:catId)&.each do |category| %>
                 <tr>
                     <td><%= category.name %></td>
                     <td><%= category.label %></td>
-                    <td><%= category.catId %></td>
                     <td><%= link_to 'Show', category %></td>
-                </tr>
+                </tr>       
             <% end %>
         <% end %>
     </tbody>

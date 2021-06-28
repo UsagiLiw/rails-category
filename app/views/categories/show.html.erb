@@ -45,12 +45,26 @@
 <% if !@category.isLeaf %>
 <p>
   <strong>Sub-category:</strong><br>
-  <% @categories.sort_by(&:catId).each do |category| %>
-    <% if category.category_id == @category.id %>
-      <%= category.label %> <%= link_to 'Show', category %><br>
-    <% end %>
-  <% end %>
 </p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categories.sort_by(&:catId).each do |category| %>
+      <% if category.category_id == @category.id %>
+      <tr>
+          <td><%= category.name %></td>
+          <td><%= link_to 'Show', category %></td>
+      </tr>
+      <% end %>
+    <% end %>
+</table>
 <% end %>
 
 <!-- if first level 'back' navigate to categories index -->
