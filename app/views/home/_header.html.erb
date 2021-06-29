@@ -4,12 +4,12 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <!--div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
             <%= link_to 'Categories', categories_path, class: "nav-link" %>
         </li>
-      </ul>
+      </ul-->
     <%= form_tag(categories_path, method: :get, class: 'd-flex') do %>
         <%= text_field_tag(:search, params[:search], class: "form-control me-2", type: "search", placeholder: "Search") %>
         <%= submit_tag ("Search"), class: "btn btn-outline-success" %>
